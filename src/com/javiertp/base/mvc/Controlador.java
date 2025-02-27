@@ -7,6 +7,8 @@ import java.awt.event.*;
 import java.io.IOException;
 import java.util.List;
 
+import com.formdev.flatlaf.FlatDarkLaf;
+import com.formdev.flatlaf.FlatLightLaf;
 import com.javiertp.base.Mision;
 import com.javiertp.base.NaveEspacial;
 import com.javiertp.base.Tripulante;
@@ -22,6 +24,8 @@ public class Controlador extends WindowAdapter implements ActionListener, ListSe
 
     private Vista vista;
     private Modelo modelo;
+    boolean conectado = false;
+    boolean modoOscuro = false;
 
     public Controlador(Vista vista, Modelo modelo) {
 
@@ -33,13 +37,14 @@ public class Controlador extends WindowAdapter implements ActionListener, ListSe
         addWindowListener(this);
 
         try {
-            refrescarSeccionNaves();
-            refrescarSeccionTripulantes();
-            refrescarSeccionMisiones();
+            if (conectado) {
+                refrescarSeccionNaves();
+                refrescarSeccionTripulantes();
+                refrescarSeccionMisiones();
+            }
         }catch (Exception e){
             System.out.println("Inicando el programa");
         }
-
     }
 
     private void addActionListener(ActionListener listener){
@@ -63,6 +68,8 @@ public class Controlador extends WindowAdapter implements ActionListener, ListSe
         vista.eliminarMisionBtn.setActionCommand("EliminarMision");
         vista.conexionItem.addActionListener(listener);
         vista.salirItem.addActionListener(listener);
+        vista.modoOscuroItem.addActionListener(listener);
+        vista.ayudaItem.addActionListener(listener);
 
        vista.informe1Btn.addActionListener(listener);
        vista.informe1Btn.setActionCommand("Informe1");
@@ -100,6 +107,7 @@ public class Controlador extends WindowAdapter implements ActionListener, ListSe
             switch(comando){
                 case "Conectar":{
                     modelo.conectar();
+                    conectado = true;
                 }
                 break;
                 case "Salir":{
@@ -206,12 +214,40 @@ public class Controlador extends WindowAdapter implements ActionListener, ListSe
                     break;
                 case "Grafico2":
                     break;
+                case "Ayuda":
+                    break;
+                case "Modo Claro":
+                case "Modo Oscuro":
+                    cambiarTema();
+                    break;
             }
-            refrescarSeccionNaves();
-            refrescarSeccionTripulantes();
-            refrescarSeccionMisiones();
+            if (conectado) {
+                refrescarSeccionNaves();
+                refrescarSeccionTripulantes();
+                refrescarSeccionMisiones();
+            }
         }catch (Exception e){
-            HibernateUtil.getCurrentSession().getTransaction().rollback();
+            if (!conectado) {
+                Util.showWarningAlert("No estás conectado a la BBDD");
+            } else {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void cambiarTema() {
+        try {
+            if (modoOscuro) {
+                UIManager.setLookAndFeel(new FlatLightLaf());
+                vista.modoOscuroItem.setText("Modo Oscuro");
+            } else {
+                UIManager.setLookAndFeel(new FlatDarkLaf());
+                vista.modoOscuroItem.setText("Modo Claro");
+            }
+            modoOscuro = !modoOscuro;
+            SwingUtilities.updateComponentTreeUI(vista.frame);
+        } catch (UnsupportedLookAndFeelException e) {
+            e.printStackTrace();
         }
     }
 
