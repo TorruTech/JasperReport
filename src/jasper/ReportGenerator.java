@@ -108,4 +108,38 @@ public class ReportGenerator {
         }
         return null;
     }
+
+    public static JasperPrint generarGrafico1() {
+        try {
+            String informe = "/Grafico1.jasper";
+            InputStream inputStream = ReportGenerator.class.getResourceAsStream(informe);
+
+            if (inputStream == null) {
+                throw new FileNotFoundException("El archivo " + informe + " no se encuentra en el classpath.");
+            }
+
+            Connection connection = getHibernateConnection();
+            return JasperFillManager.fillReport(inputStream, new HashMap<>(), connection);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static JasperPrint generarGrafico2() {
+        try {
+            String informe = "/Grafico2.jasper";
+            InputStream inputStream = ReportGenerator.class.getResourceAsStream(informe);
+
+            if (inputStream == null) {
+                throw new FileNotFoundException("El archivo " + informe + " no se encuentra en el classpath.");
+            }
+
+            Connection connection = getHibernateConnection();
+            return JasperFillManager.fillReport(inputStream, new HashMap<>(), connection);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
