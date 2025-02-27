@@ -66,6 +66,8 @@ public class Vista extends JFrame {
 
     JMenuItem conexionItem;
     JMenuItem salirItem;
+    JMenuItem modoOscuroItem;
+    JMenuItem ayudaItem;
 
     public Vista() {
         frame = new JFrame("App de flota espacial");
@@ -139,10 +141,18 @@ public class Vista extends JFrame {
         conexionItem = new JMenuItem("Conectar");
         conexionItem.setActionCommand("Conectar");
 
+        modoOscuroItem = new JMenuItem("Modo Oscuro");
+        modoOscuroItem.setActionCommand("Modo Oscuro");
+
+        ayudaItem = new JMenuItem("Ayuda");
+        ayudaItem.setActionCommand("Ayuda");
+
         salirItem = new JMenuItem("Salir");
         salirItem.setActionCommand("Salir");
 
         menu.add(conexionItem);
+        menu.add(ayudaItem);
+        menu.add(modoOscuroItem);
         menu.add(salirItem);
         barra.add(menu);
         frame.setJMenuBar(barra);
