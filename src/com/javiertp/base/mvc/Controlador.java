@@ -211,8 +211,12 @@ public class Controlador extends WindowAdapter implements ActionListener, ListSe
                     mostrarInforme(informeLleno);
                     break;
                 case "Grafico1":
+                    informeLleno = ReportGenerator.generarGrafico1();
+                    mostrarInforme(informeLleno);
                     break;
                 case "Grafico2":
+                    informeLleno = ReportGenerator.generarGrafico2();
+                    mostrarInforme(informeLleno);
                     break;
                 case "Ayuda":
                     break;
@@ -230,7 +234,7 @@ public class Controlador extends WindowAdapter implements ActionListener, ListSe
             if (!conectado) {
                 Util.showWarningAlert("No estás conectado a la BBDD");
             } else {
-                e.printStackTrace();
+                HibernateUtil.getCurrentSession().getTransaction().rollback();
             }
         }
     }
