@@ -391,6 +391,8 @@
             </children>
           </grid>
           <grid id="48b4b" layout-manager="FormLayout">
+            <rowspec value="center:84px:noGrow"/>
+            <rowspec value="top:7dlu:noGrow"/>
             <rowspec value="center:max(d;4px):noGrow"/>
             <rowspec value="top:4dlu:noGrow"/>
             <rowspec value="center:max(d;4px):noGrow"/>
@@ -404,9 +406,9 @@
             <properties/>
             <border type="none"/>
             <children>
-              <grid id="950e6" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+              <grid id="950e6" layout-manager="FlowLayout" hgap="50" vgap="5" flow-align="1">
                 <constraints>
-                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                   <forms/>
                 </constraints>
                 <properties/>
@@ -416,6 +418,7 @@
                     <constraints/>
                     <properties>
                       <actionCommand value=""/>
+                      <preferredSize width="120" height="30"/>
                       <text value="Informe1"/>
                     </properties>
                   </component>
@@ -423,6 +426,7 @@
                     <constraints/>
                     <properties>
                       <actionCommand value=""/>
+                      <preferredSize width="120" height="30"/>
                       <text value="Informe2"/>
                     </properties>
                   </component>
@@ -433,13 +437,13 @@
                 <colspec value="fill:d:noGrow"/>
                 <colspec value="fill:d:grow"/>
                 <constraints>
-                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                   <forms/>
                 </constraints>
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <grid id="254b6" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                  <grid id="254b6" layout-manager="FlowLayout" hgap="50" vgap="5" flow-align="1">
                     <constraints>
                       <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                       <forms/>
@@ -451,6 +455,7 @@
                         <constraints/>
                         <properties>
                           <actionCommand value=""/>
+                          <preferredSize width="120" height="30"/>
                           <text value="Informe3"/>
                         </properties>
                       </component>
@@ -458,6 +463,7 @@
                         <constraints/>
                         <properties>
                           <actionCommand value=""/>
+                          <preferredSize width="120" height="30"/>
                           <text value="Informe4"/>
                         </properties>
                       </component>
@@ -472,13 +478,13 @@
                 <colspec value="fill:d:noGrow"/>
                 <colspec value="fill:d:grow"/>
                 <constraints>
-                  <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                   <forms/>
                 </constraints>
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <grid id="9b296" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                  <grid id="9b296" layout-manager="FlowLayout" hgap="50" vgap="5" flow-align="1">
                     <constraints>
                       <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                       <forms/>
@@ -490,6 +496,8 @@
                         <constraints/>
                         <properties>
                           <actionCommand value=""/>
+                          <maximumSize width="89" height="30"/>
+                          <preferredSize width="120" height="30"/>
                           <text value="Informe5"/>
                         </properties>
                       </component>
@@ -497,6 +505,7 @@
                         <constraints/>
                         <properties>
                           <actionCommand value=""/>
+                          <preferredSize width="120" height="30"/>
                           <text value="Informe6"/>
                         </properties>
                       </component>
@@ -513,7 +522,7 @@
                     <properties/>
                     <border type="none"/>
                     <children>
-                      <grid id="1d449" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                      <grid id="1d449" layout-manager="FlowLayout" hgap="50" vgap="5" flow-align="1">
                         <constraints>
                           <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                           <forms/>
@@ -525,6 +534,9 @@
                             <constraints/>
                             <properties>
                               <actionCommand value=""/>
+                              <maximumSize width="120" height="30"/>
+                              <minimumSize width="120" height="30"/>
+                              <preferredSize width="120" height="30"/>
                               <text value="Gráfico 1  "/>
                             </properties>
                           </component>
@@ -532,6 +544,7 @@
                             <constraints/>
                             <properties>
                               <actionCommand value=""/>
+                              <preferredSize width="120" height="30"/>
                               <text value="Gráfico 2"/>
                             </properties>
                           </component>

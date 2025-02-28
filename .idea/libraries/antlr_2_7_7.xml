@@ -39,6 +39,7 @@
       <root url="jar://$PROJECT_DIR$/lib/jfreechart-1.0.19.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/jcommon-xml-1.0.23.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/jcommon-1.0.23.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javahelp-2.0.02.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$PROJECT_DIR$/lib/commons-collections4-4.4-javadoc.jar!/" />

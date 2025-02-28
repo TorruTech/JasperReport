@@ -70,7 +70,7 @@ public class Vista extends JFrame {
 
     public Vista() {
         this.setTitle("App de flota espacial");
-        ImageIcon icon = new ImageIcon("logo.png");
+        ImageIcon icon = new ImageIcon("/resources/logo.png");
         this.setIconImage(icon.getImage());
         this.setContentPane(panel1);
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);

@@ -228,18 +228,8 @@ public class Controlador extends WindowAdapter implements ActionListener, ListSe
 
                 case "Informe6":
                     if (avisoBBDD()) break;
-
-                    String rangoSeleccionado = seleccionarRango();
-
-                    if (rangoSeleccionado != null) {
-                        informeLleno = ReportGenerator.generarInformeTripulacionPorRango(rangoSeleccionado);
-                        mostrarInforme(informeLleno);
-                    } else {
-                        JOptionPane.showMessageDialog(null,
-                                "No se seleccionó un rango.",
-                                "Aviso",
-                                JOptionPane.WARNING_MESSAGE);
-                    }
+                    informeLleno = ReportGenerator.generarInformeTripulacionPorRango();
+                    mostrarInforme(informeLleno);
                     break;
                 case "Grafico1":
                     if (avisoBBDD()) break;
@@ -270,20 +260,6 @@ public class Controlador extends WindowAdapter implements ActionListener, ListSe
                 HibernateUtil.getCurrentSession().getTransaction().rollback();
             }
         }
-    }
-
-    private static String seleccionarRango() {
-        String[] opciones = {"Capitán", "Ingeniero", "Piloto"};
-        String rangoSeleccionado = (String) JOptionPane.showInputDialog(
-                null,
-                "Seleccione un rango de tripulación:",
-                "Generar Informe",
-                JOptionPane.QUESTION_MESSAGE,
-                null, // Icono (puede ser null)
-                opciones, // Opciones disponibles
-                opciones[0] // Opción por defecto
-        );
-        return rangoSeleccionado;
     }
 
     private boolean avisoBBDD() {
