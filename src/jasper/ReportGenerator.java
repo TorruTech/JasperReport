@@ -115,7 +115,7 @@ public class ReportGenerator {
 
     public static JasperPrint generarInformeTripulacionPorRango(String rango) throws FileNotFoundException {
         HashMap<String, Object> parametros = new HashMap<>();
-        parametros.put("rango", rango);
+        parametros.put("Rango", rango);
         String informe = "/Informe6.jasper";
         InputStream inputStream = ReportGenerator.class.getResourceAsStream(informe);
 

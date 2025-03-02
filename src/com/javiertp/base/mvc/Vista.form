@@ -537,7 +537,7 @@
                               <maximumSize width="120" height="30"/>
                               <minimumSize width="120" height="30"/>
                               <preferredSize width="200" height="30"/>
-                              <text value="Gráfico 1  "/>
+                              <text value="Gráfico Tripulantes por Rango"/>
                             </properties>
                           </component>
                           <component id="43b94" class="javax.swing.JButton" binding="grafico2btn">
@@ -545,7 +545,7 @@
                             <properties>
                               <actionCommand value=""/>
                               <preferredSize width="200" height="30"/>
-                              <text value="Gráfico 2"/>
+                              <text value="Gráfico Misiones por Estado"/>
                             </properties>
                           </component>
                         </children>

@@ -16,9 +16,37 @@
         <p>En esta sección puedes:</p>
         <ul>
             <li>Generar informes sobre las naves y tripulantes.</li>
-            <li>Exportar los informes en formatos como PDF o CSV.</li>
+            <li>Exportar los informes en formato PDF.</li>
             <li>Visualizar estadísticas de misiones completadas.</li>
         </ul>
+    </section>
+
+    <section>
+        <h2>Tipos de Informes Disponibles</h2>
+
+        <h3>1. Informe General: Listado de Naves Espaciales</h3>
+        <p>Muestra todas las naves junto con su clase y capacidad máxima.</p>
+
+        <h3>2. Informe General: Listado de Tripulantes</h3>
+        <p>Lista todos los tripulantes de la flota con sus rangos y naves asignadas.</p>
+
+        <h3>3. Informe Agrupado: Tripulación por Nave</h3>
+        <p>Agrupa a los tripulantes según la nave a la que pertenecen.</p>
+
+        <h3>4. Informe Agrupado: Misiones por Estado</h3>
+        <p>Agrupa las misiones realizadas según su estado (Completada, Fallida, En progreso).</p>
+
+        <h3>5. Informe Dinámico: Misiones de una Nave</h3>
+        <p>Permite introducir el ID de una nave y obtener un informe de todas sus misiones.</p>
+
+        <h3>6. Informe Dinámico: Tripulación por Rango</h3>
+        <p>Permite introducir un rango (Capitán, Ingeniero, Piloto) y obtener una lista de tripulantes en ese nivel.</p>
+
+        <h3>Gráfico 1: Tripulantes por Rango</h3>
+        <p>Muestra un gráfico de barras que muestra la cantidad de tripulantes por rango.</p>
+
+        <h3>Gráfico 2: Misiones por Estado</h3>
+        <p>Muestra un gráfico de pastel que muestra la cantidad de misiones por estado.</p>
     </section>
 </main>
 <footer>

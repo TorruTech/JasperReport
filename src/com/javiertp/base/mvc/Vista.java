@@ -75,7 +75,7 @@ public class Vista extends JFrame {
     public HelpBroker helpBroker;
 
     public Vista() {
-        this.setTitle("App de flota espacial");
+        this.setTitle("App de Flota Espacial S.L.");
         ImageIcon icon = new ImageIcon("logo.png");
         this.setIconImage(icon.getImage());
         this.setContentPane(panel1);

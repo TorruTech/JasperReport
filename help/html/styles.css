@@ -18,6 +18,10 @@ h2 {
     color: #6660E3;
 }
 
+h3 {
+    color: #6660E3;
+}
+
 img {
     width: 200px;
 }
@@ -26,4 +30,8 @@ footer {
     text-align: center;
     margin-top: 20px;
     font-size: 0.9em;
+}
+
+.informe {
+    margin-bottom: 20px;
 }

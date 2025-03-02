@@ -86,7 +86,7 @@ public class Vista extends JFrame {
         crearMenu();
         iniciarListasYComboBox();
         setEnumComboBox();
-        iniciarAyuda(this);
+        iniciarAyuda();
         this.setVisible(true);
     }
 
@@ -166,42 +166,30 @@ public class Vista extends JFrame {
         this.setJMenuBar(barra);
     }
 
-    public void iniciarAyuda(JFrame frame) {
+    private void iniciarAyuda() {
         try {
-            // Cargar el archivo de ayuda
-            ClassLoader cl = getClass().getClassLoader();
-            URL hsURL = cl.getResource("help/help_set.hs");
+            File fichero = new File("help/help_set.hs");
+            URL hsURL = fichero.toURI().toURL();
 
-            if (hsURL == null) {
-                throw new RuntimeException("No se encontró el archivo help_set.hs");
-            }
-
-            HelpSet helpset = new HelpSet(null, hsURL);
+            HelpSet helpset = new HelpSet(getClass().getClassLoader(), hsURL);
             helpBroker = helpset.createHelpBroker();
 
-            // Asignar la tecla F1 para abrir la ayuda contextual
-            helpBroker.enableHelpKey(frame.getRootPane(), "introduccion", helpset);
+            helpBroker.enableHelpKey(getRootPane(), "introduccion", helpset);
 
-            // Detectar el tema actual
-            boolean esModoOscuro = UIManager.getLookAndFeel() instanceof com.formdev.flatlaf.FlatDarkLaf;
-            String tema = esModoOscuro ? "dark" : "light";
+            Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
+            int anchoPantalla = pantalla.width;
+            int altoPantalla = pantalla.height;
 
-            // Abrir ayuda con el tema seleccionado
-            abrirAyudaConTema(frame, tema);
+            Dimension tamanoVentana = helpBroker.getSize();
+            int anchoVentana = tamanoVentana.width;
+            int altoVentana = tamanoVentana.height;
+
+            int x = (anchoPantalla - anchoVentana) / 2;
+            int y = (altoPantalla - altoVentana) / 2;
+
+            helpBroker.setLocation(new Point(x, y));
         } catch (Exception e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Error al cargar la ayuda: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }
-
-    private void abrirAyudaConTema(JFrame frame, String tema) {
-        // Abrir ayuda en una ventana separada con el tema correcto
-        try {
-            String url = "file:///C:/ruta/a/tu/help/index.html?theme=" + tema;
-            Desktop.getDesktop().browse(new java.net.URI(url));
-        } catch (Exception e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(frame, "No se pudo abrir la ayuda.", "Error", JOptionPane.ERROR_MESSAGE);
+            throw new RuntimeException(e);
         }
     }
 }

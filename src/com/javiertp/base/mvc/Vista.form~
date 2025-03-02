@@ -391,7 +391,7 @@
             </children>
           </grid>
           <grid id="48b4b" layout-manager="FormLayout">
-            <rowspec value="center:84px:noGrow"/>
+            <rowspec value="center:50px:noGrow"/>
             <rowspec value="top:7dlu:noGrow"/>
             <rowspec value="center:max(d;4px):noGrow"/>
             <rowspec value="top:4dlu:noGrow"/>
