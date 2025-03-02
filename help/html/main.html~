@@ -13,8 +13,8 @@
 <main>
 	<section>
 		<h2>Introducción</h2>
-		<p>Esta aplicación te permite gestionar naves, tripulantes y misiones de la flota espacial. Puedes visualizar, añadir, eliminar y modificar elementos en cada una de las secciones.</p>
-		<p>Además, podrás elegir el modo oscuro para reducir la fatiga visual o el modo claro para una experiencia de usuario más clara.</p>
+		<p>Esta aplicación te permite gestionar naves, tripulantes y misiones en el universo de Star Wars. Puedes visualizar, añadir, eliminar y modificar elementos en cada sección.</p>
+		<p>Además, podrás ajustar las preferencias, como activar el modo oscuro, y conectar a la base de datos para almacenar tu progreso.</p>
 	</section>
 </main>
 <footer>

@@ -58,10 +58,16 @@ public class ReportGenerator {
     }
 
     public static JasperPrint generarInformeTripulacionPorNave() {
-        String informe = "Informe3.jasper";
         try {
+            String informe = "/Informe3.jasper";
+            InputStream inputStream = ReportGenerator.class.getResourceAsStream(informe);
+
+            if (inputStream == null) {
+                throw new FileNotFoundException("El archivo " + informe + " no se encuentra en el classpath.");
+            }
+
             Connection connection = getHibernateConnection();
-            JasperPrint informeLleno = JasperFillManager.fillReport(informe, new HashMap<>(), connection);
+            JasperPrint informeLleno = JasperFillManager.fillReport(inputStream, new HashMap<>(), connection);
             return informeLleno;
         } catch (Exception e) {
             e.printStackTrace();
@@ -70,10 +76,16 @@ public class ReportGenerator {
     }
 
     public static JasperPrint generarInformeMisionesPorEstado() {
-        String informe = "Informe4.jasper";
         try {
+            String informe = "/Informe4.jasper";
+            InputStream inputStream = ReportGenerator.class.getResourceAsStream(informe);
+
+            if (inputStream == null) {
+                throw new FileNotFoundException("El archivo " + informe + " no se encuentra en el classpath.");
+            }
+
             Connection connection = getHibernateConnection();
-            JasperPrint informeLleno = JasperFillManager.fillReport(informe, new HashMap<>(), connection);
+            JasperPrint informeLleno = JasperFillManager.fillReport(inputStream, new HashMap<>(), connection);
             return informeLleno;
         } catch (Exception e) {
             e.printStackTrace();

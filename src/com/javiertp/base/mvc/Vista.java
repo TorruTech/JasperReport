@@ -7,8 +7,12 @@ import com.javiertp.base.enums.Clases;
 import com.javiertp.base.enums.Estados;
 import com.javiertp.base.enums.Rangos;
 
+import javax.help.HelpBroker;
+import javax.help.HelpSet;
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.net.URL;
 
 public class Vista extends JFrame {
 
@@ -68,6 +72,8 @@ public class Vista extends JFrame {
     JMenuItem modoOscuroItem;
     JMenuItem ayudaItem;
 
+    public HelpBroker helpBroker;
+
     public Vista() {
         this.setTitle("App de flota espacial");
         ImageIcon icon = new ImageIcon("logo.png");
@@ -75,12 +81,13 @@ public class Vista extends JFrame {
         this.setContentPane(panel1);
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         this.pack();
-        this.setVisible(true);
         this.setLocationRelativeTo(null);
         this.setSize(new Dimension(600,450));
         crearMenu();
         iniciarListasYComboBox();
         setEnumComboBox();
+        iniciarAyuda();
+        this.setVisible(true);
     }
 
     private void iniciarListasYComboBox() {
@@ -157,5 +164,32 @@ public class Vista extends JFrame {
         menu.add(salirItem);
         barra.add(menu);
         this.setJMenuBar(barra);
+    }
+
+    private void iniciarAyuda() {
+        try {
+            File fichero = new File("help/help_set.hs");
+            URL hsURL = fichero.toURI().toURL();
+
+            HelpSet helpset = new HelpSet(getClass().getClassLoader(), hsURL);
+            helpBroker = helpset.createHelpBroker();
+
+            helpBroker.enableHelpKey(getRootPane(), "introduccion", helpset);
+
+            Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
+            int anchoPantalla = pantalla.width;
+            int altoPantalla = pantalla.height;
+
+            Dimension tamanoVentana = helpBroker.getSize();
+            int anchoVentana = tamanoVentana.width;
+            int altoVentana = tamanoVentana.height;
+
+            int x = (anchoPantalla - anchoVentana) / 2;
+            int y = (altoPantalla - altoVentana) / 2;
+
+            helpBroker.setLocation(new Point(x, y));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }

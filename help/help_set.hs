@@ -4,7 +4,7 @@
          "http://java.sun.com/products/javahelp/helpset_1_0.dtd">
 
 <helpset version="1.0">
-    <title>Guia de la Aplicacion Star Wars</title>
+    <title>Ayuda de la flota espacial</title>
     <maps>
         <!-- Página por defecto al mostrar la ayuda -->
         <homeID>introduccion</homeID>

@@ -7,8 +7,12 @@ import com.javiertp.base.enums.Clases;
 import com.javiertp.base.enums.Estados;
 import com.javiertp.base.enums.Rangos;
 
+import javax.help.HelpBroker;
+import javax.help.HelpSet;
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.net.URL;
 
 public class Vista extends JFrame {
 
@@ -68,19 +72,22 @@ public class Vista extends JFrame {
     JMenuItem modoOscuroItem;
     JMenuItem ayudaItem;
 
+    public HelpBroker helpBroker;
+
     public Vista() {
         this.setTitle("App de flota espacial");
-        ImageIcon icon = new ImageIcon("/resources/logo.png");
+        ImageIcon icon = new ImageIcon("logo.png");
         this.setIconImage(icon.getImage());
         this.setContentPane(panel1);
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         this.pack();
-        this.setVisible(true);
         this.setLocationRelativeTo(null);
         this.setSize(new Dimension(600,450));
         crearMenu();
         iniciarListasYComboBox();
         setEnumComboBox();
+        iniciarAyuda(this);
+        this.setVisible(true);
     }
 
     private void iniciarListasYComboBox() {
@@ -157,5 +164,44 @@ public class Vista extends JFrame {
         menu.add(salirItem);
         barra.add(menu);
         this.setJMenuBar(barra);
+    }
+
+    public void iniciarAyuda(JFrame frame) {
+        try {
+            // Cargar el archivo de ayuda
+            ClassLoader cl = getClass().getClassLoader();
+            URL hsURL = cl.getResource("help/help_set.hs");
+
+            if (hsURL == null) {
+                throw new RuntimeException("No se encontró el archivo help_set.hs");
+            }
+
+            HelpSet helpset = new HelpSet(null, hsURL);
+            helpBroker = helpset.createHelpBroker();
+
+            // Asignar la tecla F1 para abrir la ayuda contextual
+            helpBroker.enableHelpKey(frame.getRootPane(), "introduccion", helpset);
+
+            // Detectar el tema actual
+            boolean esModoOscuro = UIManager.getLookAndFeel() instanceof com.formdev.flatlaf.FlatDarkLaf;
+            String tema = esModoOscuro ? "dark" : "light";
+
+            // Abrir ayuda con el tema seleccionado
+            abrirAyudaConTema(frame, tema);
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error al cargar la ayuda: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void abrirAyudaConTema(JFrame frame, String tema) {
+        // Abrir ayuda en una ventana separada con el tema correcto
+        try {
+            String url = "file:///C:/ruta/a/tu/help/index.html?theme=" + tema;
+            Desktop.getDesktop().browse(new java.net.URI(url));
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(frame, "No se pudo abrir la ayuda.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 }

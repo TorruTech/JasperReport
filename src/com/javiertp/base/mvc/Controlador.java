@@ -85,6 +85,7 @@ public class Controlador extends WindowAdapter implements ActionListener, ListSe
        vista.grafico1btn.setActionCommand("Grafico1");
        vista.grafico2btn.addActionListener(listener);
        vista.grafico2btn.setActionCommand("Grafico2");
+       
     }
 
     private void addListSelecctionListener(ListSelectionListener listener){
@@ -105,7 +106,11 @@ public class Controlador extends WindowAdapter implements ActionListener, ListSe
                 }
                 break;
                 case "Salir":{
-                    System.exit(0);
+                    int resp = Util.showConfirmDialog("¿Desea salir de la aplicación?", "Salir");
+                    if (resp == JOptionPane.OK_OPTION) {
+                        modelo.desconectar();
+                        System.exit(0);
+                    }
                 }
                 break;
                 case "NuevaNave":
@@ -128,8 +133,11 @@ public class Controlador extends WindowAdapter implements ActionListener, ListSe
                 }
                 break;
                 case "EliminarNave":{
-                    NaveEspacial nave = vista.listNaves.getSelectedValue();
-                    modelo.eliminarNaveEspacial(nave);
+                    int resp = Util.showConfirmDialog("¿Desea eliminar la nave?", "Eliminar Nave Espacial");
+                    if (resp == JOptionPane.OK_OPTION) {
+                        NaveEspacial nave = vista.listNaves.getSelectedValue();
+                        modelo.eliminarNaveEspacial(nave);
+                    }
                 }
                 break;
                 case "NuevoTripulante":
@@ -152,8 +160,11 @@ public class Controlador extends WindowAdapter implements ActionListener, ListSe
                 }
                 break;
                 case "EliminarTripulante":{
-                    Tripulante tripulante = vista.listTripulantes.getSelectedValue();
-                    modelo.eliminarTripulante(tripulante);
+                    int resp = Util.showConfirmDialog("¿Desea eliminar el tripulante?", "Eliminar Tripulante");
+                    if (resp == JOptionPane.OK_OPTION) {
+                        Tripulante tripulante = vista.listTripulantes.getSelectedValue();
+                        modelo.eliminarTripulante(tripulante);
+                    }
                 }
                 break;
                 case "NuevaMision":
@@ -176,8 +187,11 @@ public class Controlador extends WindowAdapter implements ActionListener, ListSe
                 }
                 break;
                 case "EliminarMision":{
-                    Mision mision = vista.listMisiones.getSelectedValue();
-                    modelo.eliminarMision(mision);
+                    int resp = Util.showConfirmDialog("¿Desea eliminar la misión?", "Eliminar Misión");
+                    if (resp == JOptionPane.OK_OPTION) {
+                        Mision mision = vista.listMisiones.getSelectedValue();
+                        modelo.eliminarMision(mision);
+                    }
                 }
                 break;
                 case "Informe1":
@@ -252,6 +266,7 @@ public class Controlador extends WindowAdapter implements ActionListener, ListSe
                     mostrarInforme(informeLleno);
                     break;
                 case "Ayuda":
+                    vista.helpBroker.setDisplayed(true);
                     break;
                 case "Modo Claro":
                 case "Modo Oscuro":

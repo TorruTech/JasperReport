@@ -1,7 +1,6 @@
 body {
-    background-color: #000;
-    color: #fff;
     font-family: 'Arial', sans-serif;
+    font-weight: 500;
     margin: 0;
     padding: 20px;
 }
@@ -12,15 +11,15 @@ header {
 
 h1 {
     font-size: 2.5em;
-    color: #FFD700; /* Color dorado */
+    color: #3E246B;
 }
 
 h2 {
-    color: #FFD700; /* Color dorado */
+    color: #6660E3;
 }
 
 img {
-    width: 200px; /* Ajusta según lo necesites */
+    width: 200px;
 }
 
 footer {

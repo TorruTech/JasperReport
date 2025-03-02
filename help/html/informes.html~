@@ -3,22 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tripulantes</title>
+    <title>Informes</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <header>
-    <h1>Tripulantes</h1>
+    <h1>Informes</h1>
 </header>
 <main>
     <section>
-        <h2>Gestión de Tripulantes</h2>
+        <h2>Visualización de Informes</h2>
         <p>En esta sección puedes:</p>
         <ul>
-            <li>Visualizar todos los tripulantes registrados.</li>
-            <li>Añadir nuevos tripulantes a la base de datos.</li>
-            <li>Eliminar tripulantes que ya no necesites.</li>
-            <li>Modificar la información de los tripulantes existentes.</li>
+            <li>Generar informes sobre las naves y tripulantes.</li>
+            <li>Exportar los informes en formatos como PDF o CSV.</li>
+            <li>Visualizar estadísticas de misiones completadas.</li>
         </ul>
     </section>
 </main>

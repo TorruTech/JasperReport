@@ -418,14 +418,16 @@
                     <constraints/>
                     <properties>
                       <actionCommand value=""/>
-                      <text value="Informe1"/>
+                      <preferredSize width="200" height="30"/>
+                      <text value="Listado de Naves Espaciales"/>
                     </properties>
                   </component>
                   <component id="3d4ec" class="javax.swing.JButton" binding="informe2btn">
                     <constraints/>
                     <properties>
                       <actionCommand value=""/>
-                      <text value="Informe2"/>
+                      <preferredSize width="200" height="30"/>
+                      <text value="Listado de Tripulantes"/>
                     </properties>
                   </component>
                 </children>
@@ -453,14 +455,16 @@
                         <constraints/>
                         <properties>
                           <actionCommand value=""/>
-                          <text value="Informe3"/>
+                          <preferredSize width="200" height="30"/>
+                          <text value="Tripulación por Nave"/>
                         </properties>
                       </component>
                       <component id="cc0c5" class="javax.swing.JButton" binding="informe4btn">
                         <constraints/>
                         <properties>
                           <actionCommand value=""/>
-                          <text value="Informe4"/>
+                          <preferredSize width="200" height="30"/>
+                          <text value="Misiones por Estado"/>
                         </properties>
                       </component>
                     </children>
@@ -492,14 +496,17 @@
                         <constraints/>
                         <properties>
                           <actionCommand value=""/>
-                          <text value="Informe5"/>
+                          <maximumSize width="89" height="30"/>
+                          <preferredSize width="200" height="30"/>
+                          <text value="Misiones de una Nave"/>
                         </properties>
                       </component>
                       <component id="61a36" class="javax.swing.JButton" binding="informe6btn">
                         <constraints/>
                         <properties>
                           <actionCommand value=""/>
-                          <text value="Informe6"/>
+                          <preferredSize width="200" height="30"/>
+                          <text value="Tripulación por Rango"/>
                         </properties>
                       </component>
                     </children>
@@ -527,6 +534,9 @@
                             <constraints/>
                             <properties>
                               <actionCommand value=""/>
+                              <maximumSize width="120" height="30"/>
+                              <minimumSize width="120" height="30"/>
+                              <preferredSize width="200" height="30"/>
                               <text value="Gráfico 1  "/>
                             </properties>
                           </component>
@@ -534,6 +544,7 @@
                             <constraints/>
                             <properties>
                               <actionCommand value=""/>
+                              <preferredSize width="200" height="30"/>
                               <text value="Gráfico 2"/>
                             </properties>
                           </component>
