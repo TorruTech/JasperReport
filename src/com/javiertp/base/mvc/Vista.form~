@@ -513,6 +513,8 @@
                   </grid>
                   <grid id="aac4d" layout-manager="FormLayout">
                     <rowspec value="center:max(d;4px):noGrow"/>
+                    <rowspec value="top:4dlu:noGrow"/>
+                    <rowspec value="center:max(d;4px):noGrow"/>
                     <colspec value="fill:d:noGrow"/>
                     <colspec value="fill:d:grow"/>
                     <constraints>
@@ -537,7 +539,7 @@
                               <maximumSize width="120" height="30"/>
                               <minimumSize width="120" height="30"/>
                               <preferredSize width="200" height="30"/>
-                              <text value="Gráfico 1  "/>
+                              <text value="Gráfico Tripulantes por Rango"/>
                             </properties>
                           </component>
                           <component id="43b94" class="javax.swing.JButton" binding="grafico2btn">
@@ -545,7 +547,25 @@
                             <properties>
                               <actionCommand value=""/>
                               <preferredSize width="200" height="30"/>
-                              <text value="Gráfico 2"/>
+                              <text value="Gráfico Misiones por Estado"/>
+                            </properties>
+                          </component>
+                        </children>
+                      </grid>
+                      <grid id="df644" layout-manager="FlowLayout" hgap="50" vgap="5" flow-align="1">
+                        <constraints>
+                          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                          <forms/>
+                        </constraints>
+                        <properties/>
+                        <border type="none"/>
+                        <children>
+                          <component id="d7950" class="javax.swing.JButton">
+                            <constraints/>
+                            <properties>
+                              <actionCommand value=""/>
+                              <preferredSize width="100" height="30"/>
+                              <text value="Ayuda"/>
                             </properties>
                           </component>
                         </children>

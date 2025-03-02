@@ -56,6 +56,7 @@ public class Vista extends JFrame {
     JButton informe6btn;
     JButton grafico1btn;
     JButton grafico2btn;
+    JButton ayudaInformesBtn;
 
     DefaultListModel<NaveEspacial> dlmNaves;
     DefaultListModel<Tripulante> dlmTripulantes;
@@ -166,7 +167,7 @@ public class Vista extends JFrame {
         this.setJMenuBar(barra);
     }
 
-    private void iniciarAyuda() {
+    public void iniciarAyuda() {
         try {
             File fichero = new File("help/help_set.hs");
             URL hsURL = fichero.toURI().toURL();

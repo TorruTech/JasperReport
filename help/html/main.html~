@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Introducción</title>
-	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="styles_light.css">
 </head>
 <body>
 <header>
@@ -13,12 +13,13 @@
 <main>
 	<section>
 		<h2>Introducción</h2>
-		<p>Esta aplicación te permite gestionar naves, tripulantes y misiones en el universo de Star Wars. Puedes visualizar, añadir, eliminar y modificar elementos en cada sección.</p>
-		<p>Además, podrás ajustar las preferencias, como activar el modo oscuro, y conectar a la base de datos para almacenar tu progreso.</p>
+		<p>Esta aplicación te permite gestionar naves, tripulantes y misiones de la flota espacial. Puedes visualizar, añadir, eliminar y modificar elementos en cada una de las secciones.</p>
+		<p style="margin-bottom: 10px;">Además, podrás elegir el modo oscuro para reducir la fatiga visual o el modo claro para una experiencia de usuario más clara.</p>
+		<p style="margin-bottom: 10px;">!Espero que disfrutes de la aplicación!</p>
 	</section>
 </main>
 <footer>
-	<img src="logo.png" alt="Logo de la Empresa" width="100">
+	<img src="logo.png" alt="Logo de la Empresa" width="80">
 	<p>Flota Espacial S.L.</p>
 </footer>
 </body>

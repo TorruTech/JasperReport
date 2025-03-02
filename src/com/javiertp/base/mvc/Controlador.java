@@ -34,6 +34,8 @@ public class Controlador extends WindowAdapter implements ActionListener, ListSe
         addListSelecctionListener(this);
         vista.addWindowListener(this);
 
+        addMouseListeners(vista);
+
         try {
             if (conectado) {
                 refrescarSeccionNaves();
@@ -43,6 +45,41 @@ public class Controlador extends WindowAdapter implements ActionListener, ListSe
         }catch (Exception e){
             System.out.println("Inicando el programa");
         }
+    }
+
+    private static void addMouseListeners(Vista vista) {
+        vista.listNaves.addMouseMotionListener(new MouseMotionAdapter() {
+            @Override
+            public void mouseMoved(MouseEvent e) {
+                int index = vista.listNaves.locationToIndex(e.getPoint());
+                if (index >= 0) {
+                    Object info = vista.listNaves.getModel().getElementAt(index);
+                    vista.listNaves.setToolTipText(info.toString());
+                }
+            }
+        });
+
+        vista.listTripulantes.addMouseMotionListener(new MouseMotionAdapter() {
+            @Override
+            public void mouseMoved(MouseEvent e) {
+                int index = vista.listTripulantes.locationToIndex(e.getPoint());
+                if (index >= 0) {
+                    Object info = vista.listTripulantes.getModel().getElementAt(index);
+                    vista.listTripulantes.setToolTipText(info.toString());
+                }
+            }
+        });
+
+        vista.listMisiones.addMouseMotionListener(new MouseMotionAdapter() {
+            @Override
+            public void mouseMoved(MouseEvent e) {
+                int index = vista.listMisiones.locationToIndex(e.getPoint());
+                if (index >= 0) {
+                    Object info = vista.listMisiones.getModel().getElementAt(index);
+                    vista.listMisiones.setToolTipText(info.toString());
+                }
+            }
+        });
     }
 
     private void addActionListener(ActionListener listener){
@@ -85,6 +122,8 @@ public class Controlador extends WindowAdapter implements ActionListener, ListSe
        vista.grafico1btn.setActionCommand("Grafico1");
        vista.grafico2btn.addActionListener(listener);
        vista.grafico2btn.setActionCommand("Grafico2");
+       vista.ayudaInformesBtn.addActionListener(listener);
+       vista.ayudaInformesBtn.setActionCommand("AyudaInformes");
        
     }
 
@@ -265,6 +304,7 @@ public class Controlador extends WindowAdapter implements ActionListener, ListSe
                     informeLleno = ReportGenerator.generarGrafico2();
                     mostrarInforme(informeLleno);
                     break;
+                case "AyudaInformes":
                 case "Ayuda":
                     vista.helpBroker.setDisplayed(true);
                     break;
@@ -294,9 +334,9 @@ public class Controlador extends WindowAdapter implements ActionListener, ListSe
                 "Seleccione un rango de tripulación:",
                 "Generar Informe",
                 JOptionPane.QUESTION_MESSAGE,
-                null, // Icono (puede ser null)
-                opciones, // Opciones disponibles
-                opciones[0] // Opción por defecto
+                null,
+                opciones,
+                opciones[0]
         );
         return rangoSeleccionado;
     }
@@ -320,6 +360,7 @@ public class Controlador extends WindowAdapter implements ActionListener, ListSe
             }
             modoOscuro = !modoOscuro;
             SwingUtilities.updateComponentTreeUI(vista);
+            vista.iniciarAyuda();
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         }
@@ -420,6 +461,7 @@ public class Controlador extends WindowAdapter implements ActionListener, ListSe
             }
         }
     }
+
 
     @Override
     public void windowClosing(WindowEvent windowEvent) {

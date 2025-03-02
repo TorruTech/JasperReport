@@ -34,6 +34,15 @@ public class Controlador extends WindowAdapter implements ActionListener, ListSe
         addListSelecctionListener(this);
         vista.addWindowListener(this);
 
+        vista.listNaves.addMouseMotionListener(new MouseMotionAdapter() {
+            @Override
+            public void mouseMoved(MouseEvent e) {
+                if (vista.listNaves.getSelectedValue() != null) {
+                    vista.listNaves.setToolTipText(vista.listNaves.getSelectedValue().toString());
+                }
+            }
+        });
+
         try {
             if (conectado) {
                 refrescarSeccionNaves();
@@ -85,6 +94,8 @@ public class Controlador extends WindowAdapter implements ActionListener, ListSe
        vista.grafico1btn.setActionCommand("Grafico1");
        vista.grafico2btn.addActionListener(listener);
        vista.grafico2btn.setActionCommand("Grafico2");
+       vista.ayudaInformesBtn.addActionListener(listener);
+       vista.ayudaInformesBtn.setActionCommand("AyudaInformes");
        
     }
 
@@ -242,12 +253,18 @@ public class Controlador extends WindowAdapter implements ActionListener, ListSe
 
                 case "Informe6":
                     if (avisoBBDD()) break;
-                    String rango = JOptionPane.showInputDialog("Ingrese el Rango:");
-                    informeLleno = null;
-                    if (rango != null) {
-                        informeLleno = ReportGenerator.generarInformeTripulacionPorRango(rango);
+
+                    String rangoSeleccionado = seleccionarRango();
+
+                    if (rangoSeleccionado != null) {
+                        informeLleno = ReportGenerator.generarInformeTripulacionPorRango(rangoSeleccionado);
+                        mostrarInforme(informeLleno);
+                    } else {
+                        JOptionPane.showMessageDialog(null,
+                                "No se seleccionó un rango.",
+                                "Aviso",
+                                JOptionPane.WARNING_MESSAGE);
                     }
-                    mostrarInforme(informeLleno);
                     break;
                 case "Grafico1":
                     if (avisoBBDD()) break;
@@ -259,6 +276,7 @@ public class Controlador extends WindowAdapter implements ActionListener, ListSe
                     informeLleno = ReportGenerator.generarGrafico2();
                     mostrarInforme(informeLleno);
                     break;
+                case "AyudaInformes":
                 case "Ayuda":
                     vista.helpBroker.setDisplayed(true);
                     break;
@@ -288,9 +306,9 @@ public class Controlador extends WindowAdapter implements ActionListener, ListSe
                 "Seleccione un rango de tripulación:",
                 "Generar Informe",
                 JOptionPane.QUESTION_MESSAGE,
-                null, // Icono (puede ser null)
-                opciones, // Opciones disponibles
-                opciones[0] // Opción por defecto
+                null,
+                opciones,
+                opciones[0]
         );
         return rangoSeleccionado;
     }
@@ -314,6 +332,7 @@ public class Controlador extends WindowAdapter implements ActionListener, ListSe
             }
             modoOscuro = !modoOscuro;
             SwingUtilities.updateComponentTreeUI(vista);
+            vista.iniciarAyuda();
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         }
@@ -414,6 +433,7 @@ public class Controlador extends WindowAdapter implements ActionListener, ListSe
             }
         }
     }
+
 
     @Override
     public void windowClosing(WindowEvent windowEvent) {

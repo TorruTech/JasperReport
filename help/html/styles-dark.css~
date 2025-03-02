@@ -3,6 +3,8 @@ body {
     font-weight: 500;
     margin: 0;
     padding: 20px;
+    background-color: #121212;
+    color: #E0E0E0; 
 }
 
 header {
@@ -11,15 +13,15 @@ header {
 
 h1 {
     font-size: 2.5em;
-    color: #3E246B;
+    color: #BB86FC;
 }
 
 h2 {
-    color: #6660E3;
+    color: #8AB4F8;
 }
 
 h3 {
-    color: #6660E3;
+    color: #8AB4F8;
 }
 
 img {
@@ -30,8 +32,13 @@ footer {
     text-align: center;
     margin-top: 20px;
     font-size: 0.9em;
+    color: #B0B0B0;
 }
 
 .informe {
     margin-bottom: 20px;
+    background-color: #1E1E1E;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #BB86FC;
 }

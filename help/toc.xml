@@ -8,7 +8,7 @@ topicimage="ItemIco"-->
         <tocitem text="Misiones" target="misiones"/>
         <tocitem text="Informes" target="informes"/>
         <tocitem text="Preferencias" target="preferencias">
-            <tocitem text="Modo Oscuro" target="modo_oscuro"/>
+            <tocitem text="Modo Oscuro/Claro" target="modo_oscuro"/>
         </tocitem>
     </tocitem>
 </toc>
